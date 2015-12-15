@@ -30,7 +30,7 @@ namespace GP_BlockSection.Select
             throw new Exception("Отменено пользователем.");
          }
          IdsBlRefSections = new List<ObjectId>();
-         foreach (ObjectId idEnt in res.Value)
+         foreach (ObjectId idEnt in res.Value.GetObjectIds())
          {
             if (idEnt.ObjectClass.Name == "AcDbBlockReference")
             {

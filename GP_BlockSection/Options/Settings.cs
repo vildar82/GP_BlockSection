@@ -19,11 +19,18 @@ namespace GP_BlockSection.Options
       public string AttrName { get; set; }
       
 
-      private static Settings _settings = Load();      
+      private static Settings _settings;      
       private static string _curDllDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
       public static string FileSettings { get { return Path.Combine(_curDllDir, "GP_BlockSection.xml"); } }
       
-      public static Settings Default { get { return _settings; }}
+      public static Settings Default
+      {
+         get
+         {
+            if (_settings == null) _settings = Load();
+            return _settings;
+         }
+      }
 
       private static Settings Load()
       {

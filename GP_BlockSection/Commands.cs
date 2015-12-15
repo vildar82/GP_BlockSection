@@ -22,14 +22,15 @@ namespace GP_BlockSection
          if (doc == null) return;
          using (var DocLock = doc.LockDocument())
          {
-            try
-            {
-               
-            }
-            catch (System.Exception ex)
-            {
-               doc.Editor.WriteMessage("\n{0}", ex.Message);               
-            }
+            //try
+            //{
+               SectionService ss = new SectionService(doc);
+               ss.CalcSections();
+            //}
+            //catch (System.Exception ex)
+            //{
+            //   doc.Editor.WriteMessage("\n{0}", ex.Message);               
+            //}
          }
       }
    }

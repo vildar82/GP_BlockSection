@@ -14,6 +14,8 @@ namespace GP_BlockSection.Sections
       private List<ObjectId> _idsBlRefSections;
       private SectionService _service;
 
+      public List<Section> Sections { get; private set; }
+
       public ParserBlockSection(SectionService sectionService, List<ObjectId> idsBlRefSections)
       {
          _service = sectionService;
@@ -23,6 +25,7 @@ namespace GP_BlockSection.Sections
       // Перебор блоков блок-секции и создание списка блок-секций
       public void Parse()
       {
+         Sections = new List<Section>();
          foreach (var idBlRefSection in _idsBlRefSections)
          {
             Section section = new Section();
@@ -30,13 +33,13 @@ namespace GP_BlockSection.Sections
             using (var blRef = idBlRefSection.Open( OpenMode.ForRead, false, true) as BlockReference)
             {               
                // обработка атрибутов
-               parseAttrs(blRef.AttributeCollection, section, ref errMsg);
-               section.CheckSection();
+               parseAttrs(blRef.AttributeCollection, section, ref errMsg);               
             }
             if (!string.IsNullOrEmpty(errMsg))
             {
                Inspector.AddError(errMsg);
             }
+            Sections.Add(section);
          }
       }     
 
