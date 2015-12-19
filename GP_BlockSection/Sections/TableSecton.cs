@@ -71,13 +71,19 @@ namespace GP_BlockSection.Sections
          table.Cells[1, 0].TextString = "Наименование";
          table.Cells[1, 0].Alignment = CellAlignment.MiddleCenter;
          table.Cells[2, 0].TextString = "Площадь квартир";
+         table.Cells[2, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[3, 0].TextString = "Площадь БКФН";
-         table.Cells[4, 0].TextString = "Кол секций";         
+         table.Cells[3, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
+         table.Cells[4, 0].TextString = "Кол секций";
+         table.Cells[4, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[5, 0].TextString = "Средняя этажность";
+         table.Cells[5, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[6, 0].TextString = "ВСЕГО ПЛОЩАДЬ КВАРТИР";
+         table.Cells[6, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[7, 0].TextString = "ВСЕГО ПЛОЩАДЬ БКФН";
+         table.Cells[7, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
 
-         var titleCells = CellRange.Create(table, 5, 1, 5, table.Columns.Count - 1);
+         var titleCells = CellRange.Create(table, 1, 0,1, table.Columns.Count - 1);
          titleCells.Borders.Bottom.LineWeight = LineWeight.LineWeight030;
 
 
@@ -100,8 +106,12 @@ namespace GP_BlockSection.Sections
 
          // Общие параметры по всем типам секций
          table.Cells[5, 1].TextString = data.AverageFloors.ToString(); // Средняя этажность                       
+         table.Cells[5, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
+         table.Cells[5, 1].Borders.Top.LineWeight = LineWeight.LineWeight030;
          table.Cells[6, 1].TextString = data.TotalAreaApart.ToString("0.0"); // ВСЕГО ПЛОЩАДЬ КВАРТИР
+         table.Cells[6, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[7, 1].TextString = data.TotalAreaBKFN.ToString("0.0"); // ВСЕГО ПЛОЩАДЬ БКФН
+         table.Cells[7, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
 
          table.GenerateLayout();
          return table;
