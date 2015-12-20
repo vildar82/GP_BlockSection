@@ -13,7 +13,7 @@ namespace GP_BlockSection.Sections
 
       public List<SectionType> SectionTypes { get; private set; }      
 
-      public int AverageFloors { get; private set; }// средняя этажность
+      public double AverageFloors { get; private set; }// средняя этажность
       public double TotalAreaApart { get; private set; }
       public double TotalAreaBKFN { get; private set; }
 
@@ -43,7 +43,7 @@ namespace GP_BlockSection.Sections
          SectionTypes = types.Values.ToList();
 
          // Подсчет общих значений для всех типов секций         
-         AverageFloors = Convert.ToInt32(SectionTypes.Average(s => s.NumberFloor));
+         AverageFloors = SectionTypes.Average(s => s.NumberFloor);
          TotalAreaApart = SectionTypes.Sum(s => s.AreaApartTotal);
          TotalAreaBKFN = SectionTypes.Sum(s => s.AreaBKFN);
       }
