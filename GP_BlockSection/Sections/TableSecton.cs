@@ -32,7 +32,7 @@ namespace GP_BlockSection.Sections
          Database db = _service.Doc.Database;
          Editor ed = _service.Doc.Editor;         
 
-         TableJig jigTable = new TableJig(table, 100, "Вставка таблицы блок-секций");
+         TableJig jigTable = new TableJig(table, 1, "Вставка таблицы блок-секций");
          if (ed.Drag(jigTable).Status == PromptStatus.OK)
          {
             using (var t = db.TransactionManager.StartTransaction())
