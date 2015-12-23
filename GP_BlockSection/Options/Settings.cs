@@ -1,28 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using AcadLib.Files;
 
 namespace GP_BlockSection.Options
 {
    public class Settings
    {
-      public string BlockSectionPrefix { get; set; }
-      public string AttrAreaBKFN { get; set; }
-      public string AttrAreaApart { get; set; }
-      public string AttrAreaApartTotal { get; set; }
-      public string AttrNumberFloor { get; set; }
-      public string AttrName { get; set; }
-      
-
-      private static Settings _settings;      
       private static string _curDllDir = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-      public static string FileSettings { get { return Path.Combine(_curDllDir, "GP_BlockSection.xml"); } }
-      
+      private static Settings _settings;
+
       public static Settings Default
       {
          get
@@ -31,6 +17,14 @@ namespace GP_BlockSection.Options
             return _settings;
          }
       }
+
+      public static string FileSettings { get { return Path.Combine(_curDllDir, "GP_BlockSection.xml"); } }
+      public string AttrAreaApart { get; set; }
+      public string AttrAreaApartTotal { get; set; }
+      public string AttrAreaBKFN { get; set; }
+      public string AttrName { get; set; }
+      public string AttrNumberFloor { get; set; }
+      public string BlockSectionPrefix { get; set; }
 
       private static Settings Load()
       {
@@ -65,8 +59,8 @@ namespace GP_BlockSection.Options
             ser.SerializeList(this);
          }
          catch
-         {            
-         }         
+         {
+         }
       }
 
       private void SetDefault()

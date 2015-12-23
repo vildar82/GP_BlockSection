@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using GP_BlockSection.Options;
@@ -13,12 +10,12 @@ namespace GP_BlockSection.Select
    {
       private SectionService _ss;
 
-      public List<ObjectId> IdsBlRefSections { get; private set; }
-
-      public SelectSection (SectionService ss)
+      public SelectSection(SectionService ss)
       {
          _ss = ss;
       }
+
+      public List<ObjectId> IdsBlRefSections { get; private set; }
 
       public void Select()
       {
@@ -34,7 +31,7 @@ namespace GP_BlockSection.Select
          {
             if (idEnt.ObjectClass.Name == "AcDbBlockReference")
             {
-               using (var blRef = idEnt.Open( OpenMode.ForRead, false, true)as BlockReference)
+               using (var blRef = idEnt.Open(OpenMode.ForRead, false, true) as BlockReference)
                {
                   var name = blRef.GetEffectiveName();
                   if (name.StartsWith(Settings.Default.BlockSectionPrefix, StringComparison.OrdinalIgnoreCase))
@@ -42,7 +39,7 @@ namespace GP_BlockSection.Select
                      IdsBlRefSections.Add(idEnt);
                   }
                }
-            }            
+            }
          }
       }
    }

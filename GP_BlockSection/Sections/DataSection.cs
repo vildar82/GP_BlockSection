@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GP_BlockSection.Sections
 {
@@ -11,16 +8,18 @@ namespace GP_BlockSection.Sections
    {
       private SectionService _service;
 
-      public List<SectionType> SectionTypes { get; private set; }      
-
-      public double AverageFloors { get; private set; }// средняя этажность
-      public double TotalAreaApart { get; private set; }
-      public double TotalAreaBKFN { get; private set; }
-
       public DataSection(SectionService sectionService)
       {
          _service = sectionService;
       }
+
+      public double AverageFloors { get; private set; }
+      public List<SectionType> SectionTypes { get; private set; }
+
+      // средняя этажность
+      public double TotalAreaApart { get; private set; }
+
+      public double TotalAreaBKFN { get; private set; }
 
       /// <summary>
       /// Подсчет площадей блок-секций и типов
@@ -43,7 +42,7 @@ namespace GP_BlockSection.Sections
          SectionTypes = types.Values.ToList();
          SectionTypes.Sort();
 
-         // Подсчет общих значений для всех типов секций         
+         // Подсчет общих значений для всех типов секций
          AverageFloors = SectionTypes.Average(s => s.NumberFloor);
          TotalAreaApart = SectionTypes.Sum(s => s.AreaApartTotal);
          TotalAreaBKFN = SectionTypes.Sum(s => s.AreaBKFN);

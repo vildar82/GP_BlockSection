@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autodesk.AutoCAD.ApplicationServices;
+﻿using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.Runtime;
 
 [assembly: CommandClass(typeof(GP_BlockSection.Commands))]
@@ -17,7 +12,7 @@ namespace GP_BlockSection
       /// </summary>
       [CommandMethod("PIK", "GP-BlockSectionTable", CommandFlags.Modal | CommandFlags.NoPaperSpace | CommandFlags.NoBlockEditor)]
       public void BlockSectionTableCommand()
-      {         
+      {
          Document doc = Application.DocumentManager.MdiActiveDocument;
          if (doc == null) return;
          using (var DocLock = doc.LockDocument())
