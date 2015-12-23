@@ -49,7 +49,7 @@ namespace GP_BlockSection.Sections
          table.Cells[2, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[3, 0].TextString = "Площадь БКФН, м.кв.";
          table.Cells[3, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
-         table.Cells[4, 0].TextString = "Количество секции";
+         table.Cells[4, 0].TextString = "Количество секций";
          table.Cells[4, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
          table.Cells[5, 0].TextString = "Средняя этажность";
          table.Cells[5, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
