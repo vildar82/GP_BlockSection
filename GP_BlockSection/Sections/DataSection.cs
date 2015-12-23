@@ -41,6 +41,7 @@ namespace GP_BlockSection.Sections
             secType.AddSection(section);
          }
          SectionTypes = types.Values.ToList();
+         SectionTypes.Sort();
 
          // Подсчет общих значений для всех типов секций         
          AverageFloors = SectionTypes.Average(s => s.NumberFloor);

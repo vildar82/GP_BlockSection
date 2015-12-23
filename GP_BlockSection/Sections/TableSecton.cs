@@ -91,7 +91,7 @@ namespace GP_BlockSection.Sections
          int col = 1;
          foreach (var sectType in data.SectionTypes)
          {
-            table.Cells[1, col].TextString = sectType.Name; //ПозНаименование
+            table.Cells[1, col].TextString = sectType.Name; //Наименование
             table.Cells[2, col].TextString = sectType.AreaApartTotal.ToString("0.0");  //Площадь квартир
             table.Cells[3, col].TextString = sectType.AreaBKFN.ToString("0.0");  // Площадь БКФН
             table.Cells[4, col].TextString = sectType.Count.ToString();// Кол секций                          
