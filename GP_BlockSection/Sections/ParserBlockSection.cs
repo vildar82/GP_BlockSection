@@ -33,12 +33,12 @@ namespace GP_BlockSection.Sections
             using (var blRef = idBlRefSection.Open( OpenMode.ForRead, false, true) as BlockReference)
             {               
                // обработка атрибутов
-               parseAttrs(blRef.AttributeCollection, section, ref errMsg);               
-            }
-            if (!string.IsNullOrEmpty(errMsg))
-            {
-               Inspector.AddError(errMsg);
-            }
+               parseAttrs(blRef.AttributeCollection, section, ref errMsg);
+               if (!string.IsNullOrEmpty(errMsg))
+               {
+                  Inspector.AddError(errMsg, blRef);
+               }
+            }            
             Sections.Add(section);
          }
       }     
@@ -81,6 +81,16 @@ namespace GP_BlockSection.Sections
                   section.SetNumberFloor(atrRef.TextString);
                }
             }
+         }
+         checkParam(section, ref errMsg);        
+      }
+
+      private void checkParam(Section section, ref string errMsg)
+      {
+         // Наименование
+         if (string.IsNullOrEmpty(section.Name))
+         {
+            errMsg += "Наименование секции не определено.";
          }
       }
    }

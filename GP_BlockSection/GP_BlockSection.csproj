@@ -44,6 +44,7 @@
   <ItemGroup>
     <Reference Include="AcadLib">
       <HintPath>..\..\..\AcadLib\AcadLib\bin\Release\AcadLib.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="AcCoreMgd">
       <HintPath>..\..\..\ObjectARX\ObjectARX2015\inc\AcCoreMgd.dll</HintPath>
