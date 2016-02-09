@@ -51,7 +51,7 @@ namespace GP_BlockSection.Sections
          double val = 0;
          if (!double.TryParse(textString, out val))
          {
-            Inspector.AddError("Не определена площадь в атрибуте {0} - значение {1}", areaName, textString);
+            Inspector.AddError($"Не определена площадь в атрибуте {areaName} - значение {textString}", icon: System.Drawing.SystemIcons.Error);
          }
          return val;
       }
@@ -61,7 +61,7 @@ namespace GP_BlockSection.Sections
          int val = 0;
          if (!int.TryParse(textString, out val))
          {
-            Inspector.AddError("Не определено кол этажей в атрибуте {0} - значение {1}", attrNumberFloor, textString);
+            Inspector.AddError($"Не определено кол этажей в атрибуте {attrNumberFloor} - значение {textString}", icon: System.Drawing.SystemIcons.Error);
          }
          return val;
       }

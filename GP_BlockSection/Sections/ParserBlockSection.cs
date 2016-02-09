@@ -33,7 +33,7 @@ namespace GP_BlockSection.Sections
                parseAttrs(blRef.AttributeCollection, section, ref errMsg);
                if (!string.IsNullOrEmpty(errMsg))
                {
-                  Inspector.AddError(errMsg, blRef);
+                  Inspector.AddError(errMsg, blRef, icon: System.Drawing.SystemIcons.Error);
                }
             }
             Sections.Add(section);
