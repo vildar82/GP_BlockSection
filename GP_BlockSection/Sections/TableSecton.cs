@@ -129,10 +129,10 @@ namespace GP_BlockSection.Sections
             table.Cells[5, 1].TextString = Math.Ceiling(population).ToString();
             table.Cells[5, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //ДОО, чел
-            table.Cells[6, 1].TextString = (data.TotalAreaApart* 0.00325).ToString("0.0"); //(("Всего площадь квартир"/20)/1 000)*65
+            table.Cells[6, 1].TextString =Math.Ceiling(data.TotalAreaApart* 0.00325).ToString(); //(("Всего площадь квартир"/20)/1 000)*65
             table.Cells[6, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //СОШ, чел
-            table.Cells[7, 1].TextString = (data.TotalAreaApart * 0.00675).ToString("0.0");//  (("Всего площадь квартир"/20)/1 000)*135
+            table.Cells[7, 1].TextString = Math.Ceiling(data.TotalAreaApart * 0.00675).ToString();//  (("Всего площадь квартир"/20)/1 000)*135
             table.Cells[7, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //Машиноместа, м/м
             var mm = data.TotalAreaApart * 0.021;
