@@ -1,4 +1,5 @@
-﻿using AcadLib.Jigs;
+﻿using System;
+using AcadLib.Jigs;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 
@@ -74,7 +75,7 @@ namespace GP_BlockSection.Sections
             table.Cells[6, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
             table.Cells[7, 0].TextString = "СОШ, чел";
             table.Cells[7, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
-            table.Cells[8, 0].TextString = @"Машиноместа, м/м 420/1000"; // "\\A1;\\pxt8;Машиноместа, м/м\\P\\ptz;{\\H0.6x;420/1 000}"
+            table.Cells[8, 0].TextString = @"Машиноместа, м/м (420/1000)"; // "\\A1;\\pxt8;Машиноместа, м/м\\P\\ptz;{\\H0.6x;420/1 000}"
             table.Cells[8, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             table.Cells[9, 0].TextString = "Машиноместа гостевые, м/м (25%)";
             table.Cells[9, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
@@ -125,7 +126,7 @@ namespace GP_BlockSection.Sections
             table.Cells[4, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             // Жителей
             double population = data.TotalAreaApart * 0.05; // Всего площадь квартир/20
-            table.Cells[5, 1].TextString = population.ToString("0.0");
+            table.Cells[5, 1].TextString = Math.Ceiling(population).ToString();
             table.Cells[5, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //ДОО, чел
             table.Cells[6, 1].TextString = (data.TotalAreaApart* 0.00325).ToString("0.0"); //(("Всего площадь квартир"/20)/1 000)*65
@@ -135,10 +136,10 @@ namespace GP_BlockSection.Sections
             table.Cells[7, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //Машиноместа, м/м
             var mm = data.TotalAreaApart * 0.021;
-            table.Cells[8, 1].TextString = mm.ToString("0.0");//  (("Всего площадь квартир"/20)/1 000)*420
+            table.Cells[8, 1].TextString = Math.Ceiling( mm).ToString();//  (("Всего площадь квартир"/20)/1 000)*420
             table.Cells[8, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //Машиноместа гостевые, м/м
-            table.Cells[9, 1].TextString = (mm * 0.25).ToString("0.0");//  Машиноместа %25
+            table.Cells[9, 1].TextString = Math.Ceiling(mm * 0.25).ToString();//  Машиноместа %25
             table.Cells[9, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
 
             table.GenerateLayout();
