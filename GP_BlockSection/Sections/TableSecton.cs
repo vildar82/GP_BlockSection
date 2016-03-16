@@ -69,11 +69,11 @@ namespace GP_BlockSection.Sections
             table.Cells[3, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
             table.Cells[4, 0].TextString = "Средняя этажность";
             table.Cells[4, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
-            table.Cells[5, 0].TextString = "Жителей, чел";
+            table.Cells[5, 0].TextString = "Жителей, чел (20м2/чел)";
             table.Cells[5, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
-            table.Cells[6, 0].TextString = "ДОО, чел";
+            table.Cells[6, 0].TextString = "ДОО, чел (65/1000)";
             table.Cells[6, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
-            table.Cells[7, 0].TextString = "СОШ, чел";
+            table.Cells[7, 0].TextString = "СОШ, чел (135/1000)";
             table.Cells[7, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
             table.Cells[8, 0].TextString = @"Машиноместа, м/м (420/1000)"; // "\\A1;\\pxt8;Машиноместа, м/м\\P\\ptz;{\\H0.6x;420/1 000}"
             table.Cells[8, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
