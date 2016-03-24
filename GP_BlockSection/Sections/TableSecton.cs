@@ -75,7 +75,7 @@ namespace GP_BlockSection.Sections
             table.Cells[6, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
             table.Cells[7, 0].TextString = "СОШ, чел (135/1000)";
             table.Cells[7, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;            
-            table.Cells[8, 0].TextString = @"Машиноместа, м/м (420/1000)"; // "\\A1;\\pxt8;Машиноместа, м/м\\P\\ptz;{\\H0.6x;420/1 000}"
+            table.Cells[8, 0].TextString = @"Машиноместа, м/м ((420/1000)х90%)"; // "\\A1;\\pxt8;Машиноместа, м/м\\P\\ptz;{\\H0.6x;420/1 000}"
             table.Cells[8, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             table.Cells[9, 0].TextString = "Машиноместа гостевые, м/м (25%)";
             table.Cells[9, 0].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
@@ -136,7 +136,7 @@ namespace GP_BlockSection.Sections
             table.Cells[7, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //Машиноместа, м/м
             var mm = data.TotalAreaApart * 0.021;
-            table.Cells[8, 1].TextString = Math.Ceiling( mm).ToString();//  (("Всего площадь квартир"/20)/1 000)*420
+            table.Cells[8, 1].TextString = Math.Ceiling(mm*0.9).ToString();//  (("Всего площадь квартир"/20)/1 000)*420 90%
             table.Cells[8, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //Машиноместа гостевые, м/м
             table.Cells[9, 1].TextString = Math.Ceiling(mm * 0.25).ToString();//  Машиноместа %25
