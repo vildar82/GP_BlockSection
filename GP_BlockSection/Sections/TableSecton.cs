@@ -125,14 +125,14 @@ namespace GP_BlockSection.Sections
             table.Cells[4, 1].TextString = data.AverageFloors.ToString("0.0"); 
             table.Cells[4, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             // Жителей
-            double population = data.TotalAreaApart * 0.035714; // Всего площадь квартир/28
-            table.Cells[5, 1].TextString = Math.Ceiling(population).ToString();
+            double population = Math.Ceiling(data.TotalAreaApart * 0.035714); // Всего площадь квартир/28
+            table.Cells[5, 1].TextString = population.ToString();
             table.Cells[5, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //ДОО, чел
-            table.Cells[6, 1].TextString =Math.Ceiling(population * 0.07).ToString(); //(("Всего площадь квартир"/28)/1000)*65
+            table.Cells[6, 1].TextString =Math.Ceiling(population * 0.065).ToString(); //(("Всего площадь квартир"/28)/1000)*65
             table.Cells[6, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //СОШ, чел
-            table.Cells[7, 1].TextString = Math.Ceiling(population * 0.14).ToString();//  (("Всего площадь квартир"/28)/1000)*135
+            table.Cells[7, 1].TextString = Math.Ceiling(population * 0.135).ToString();//  (("Всего площадь квартир"/28)/1000)*135
             table.Cells[7, 1].Borders.Bottom.LineWeight = LineWeight.LineWeight030;
             //Машиноместа, м/м
             var mm = population * 0.42;
